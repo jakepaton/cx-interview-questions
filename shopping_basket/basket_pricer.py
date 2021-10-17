@@ -6,8 +6,13 @@ class BasketPricer:
         self.catalogue = catalogue
         self.offers = offers
 
-    def subtotal(self):
-        raise NotImplementedError
+    def subtotal(self) -> float:
+        """Calculates the total price of the basket without any offers being applied"""
+        subtotal = 0
+        for product_name, quantity in self.basket.items():
+            price = self.catalogue[product_name]
+            subtotal += price * quantity
+        return round(subtotal, ndigits=2)
 
     def discount(self) -> float:
         raise NotImplementedError
