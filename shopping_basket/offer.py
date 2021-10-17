@@ -18,5 +18,5 @@ class Discount(Offer):
 class BuyXGetYFree(Offer):
     offer_type = "BuyXGetYFree"
     product: str
-    quantity_needed_to_buy: int
-    quantity_get_free: int
+    num_to_buy: int
+    num_get_free: int
