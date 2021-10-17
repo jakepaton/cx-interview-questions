@@ -12,7 +12,7 @@ basket_pricer.py implements the BasketPricer class that calculates the subtotal,
 
 Catalogue contains sensible prices, e.g. prices are postitive floats.
 
-Offers are sensible, i.e. no negative discounts, no negative numnbers in "Buy x get y free" offers.
+Offers are sensible, i.e. no negative discounts, no negative numbers in "Buy x get y free" offers.
 
 When there are multiple offers available for a product, these offers stack.
 
