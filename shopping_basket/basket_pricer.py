@@ -37,7 +37,7 @@ class BasketPricer:
         return total_discount
 
     def basket_total(self) -> float:
-        raise NotImplementedError
+        return self.basket_subtotal() - self.basket_discount()
 
     def calc_percentage_discount(self, product: str, discount_pc: float) -> float:
         if product in self.basket:
