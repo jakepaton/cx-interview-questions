@@ -93,13 +93,15 @@ class BasketPricer:
 
             # Keep track of free items so these can't be discounted further
             basket[product] -= total_num_free
-            
+
             return total_num_free * price
         else:
             return 0
 
+
 if __name__ == "__main__":
     from offer import Discount, BuyXGetYFree
+
     catalogue = {
         "Baked Beans": 0.99,
         "Biscuits": 1.20,
@@ -107,7 +109,7 @@ if __name__ == "__main__":
         "Shampoo (Small)": 2.00,
         "Shampoo (Medium)": 2.50,
         "Shampoo (Large)": 3.50,
-        "Egg": 0.20
+        "Egg": 0.20,
     }
 
     basket = {"Baked Beans": 0, "Biscuits": 0, "Sardines": 0, "Egg": 26}
@@ -118,10 +120,7 @@ if __name__ == "__main__":
     # also a buy 10 get 4 free on eggs
     offers.append(
         BuyXGetYFree(
-            offer_type="BuyXGetYFree",
-            product="Egg",
-            num_to_buy=10,
-            num_get_free=4
+            offer_type="BuyXGetYFree", product="Egg", num_to_buy=10, num_get_free=4
         )
     )
 

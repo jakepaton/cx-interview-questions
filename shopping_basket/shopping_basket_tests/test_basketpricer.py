@@ -12,7 +12,7 @@ def basic_catalogue():
         "Shampoo (Small)": 2.00,
         "Shampoo (Medium)": 2.50,
         "Shampoo (Large)": 3.50,
-        "Egg": 0.20
+        "Egg": 0.20,
     }
     return catalogue
 
@@ -45,6 +45,7 @@ def basic_offers():
         )
     )
     return offers
+
 
 # Multiple offers for the same product
 @pytest.fixture
@@ -79,7 +80,6 @@ def multiple_offers():
     return offers
 
 
-
 # Test of subtotal
 # Baked beans: 4 * 0.99 = 3.96
 # Biscuits: 1 * 1.20
@@ -104,7 +104,7 @@ def test_subtotal2(basic_catalogue):
     pricer = BasketPricer(basket=basket, catalogue=basic_catalogue, offers=offers)
 
     subtotal = pricer.basket_subtotal()
-    assert subtotal>= 0 and abs(subtotal - 6.96) < 0.01
+    assert subtotal >= 0 and abs(subtotal - 6.96) < 0.01
 
 
 # Test of percentage discounting, without any other offers
@@ -193,7 +193,9 @@ def test_total2(basic_catalogue, basic_offers):
 # Discount = 3 * 1.89 + 7 * 1.89 * 0.25 = 8.9775
 def test_multiple_discounts1(basic_catalogue, multiple_offers):
     basket = {"Sardines": 10}
-    pricer = BasketPricer(basket=basket, catalogue=basic_catalogue, offers=multiple_offers)
+    pricer = BasketPricer(
+        basket=basket, catalogue=basic_catalogue, offers=multiple_offers
+    )
 
     discount = pricer.basket_discount()
     assert discount >= 0 and abs(discount - 8.9775) < 0.01
@@ -205,7 +207,9 @@ def test_multiple_discounts1(basic_catalogue, multiple_offers):
 # Total discount = 0.60 + 0.20 = 0.80
 def test_multiple_discounts2(basic_catalogue, multiple_offers):
     basket = {"Egg": 13}
-    pricer = BasketPricer(basket=basket, catalogue=basic_catalogue, offers=multiple_offers)
+    pricer = BasketPricer(
+        basket=basket, catalogue=basic_catalogue, offers=multiple_offers
+    )
 
     discount = pricer.basket_discount()
     assert discount >= 0 and abs(discount - 0.80) < 0.01
