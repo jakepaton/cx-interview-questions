@@ -1,3 +1,4 @@
 ## Documentation
 
-Please put your documentation in this file.
+Should be compatible with Python3.9+
+Tests can be run via pytest from the /shopping_basket/ directory
