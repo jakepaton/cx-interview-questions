@@ -83,17 +83,48 @@ class BasketPricer:
             num_in_basket = basket[product]
             price = catalogue[product]
 
-            # quantity x + y is required to receive all y for free,
-            # otherwise the deal can only be partially applied.
-            full_deals = num_in_basket // (num_to_buy + num_get_free)
-            remainder = num_in_basket % (num_to_buy + num_get_free)
-            partial_deals = max(remainder - num_to_buy, 0)
+            # deals completed in full: require x + y in basket to receive y for free
+            num_complete_deals = num_in_basket // (num_to_buy + num_get_free)
+            total_num_free = num_complete_deals * num_get_free
 
-            total_num_free = full_deals + partial_deals
+            # deals partially completed: if x + r < x + y remaining after complete deals applied then receive r for free
+            num_remaining = num_in_basket % (num_to_buy + num_get_free)
+            total_num_free += max(num_remaining - num_to_buy, 0)
 
             # Keep track of free items so these can't be discounted further
             basket[product] -= total_num_free
-
+            
             return total_num_free * price
         else:
             return 0
+
+if __name__ == "__main__":
+    from offer import Discount, BuyXGetYFree
+    catalogue = {
+        "Baked Beans": 0.99,
+        "Biscuits": 1.20,
+        "Sardines": 1.89,
+        "Shampoo (Small)": 2.00,
+        "Shampoo (Medium)": 2.50,
+        "Shampoo (Large)": 3.50,
+        "Egg": 0.20
+    }
+
+    basket = {"Baked Beans": 0, "Biscuits": 0, "Sardines": 0, "Egg": 26}
+
+    offers = []
+    # 10% discount on eggs
+    offers.append(Discount(offer_type="Discount", product="Egg", discount_pc=0.10))
+    # also a buy 10 get 4 free on eggs
+    offers.append(
+        BuyXGetYFree(
+            offer_type="BuyXGetYFree",
+            product="Egg",
+            num_to_buy=10,
+            num_get_free=4
+        )
+    )
+
+    pricer = BasketPricer(basket, catalogue, offers)
+
+    pricer.basket_discount()
