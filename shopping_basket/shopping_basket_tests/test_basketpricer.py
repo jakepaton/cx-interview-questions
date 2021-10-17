@@ -90,7 +90,7 @@ def test_subtotal1(basic_catalogue):
     pricer = BasketPricer(basket=basket, catalogue=basic_catalogue, offers=offers)
 
     subtotal = pricer.basket_subtotal()
-    assert subtotal >= 0 and abs(subtotal - 5.16) < 0.01
+    assert subtotal >= 0 and abs(subtotal - 5.16) < 0.001
 
 
 # Test of subtotal
@@ -104,7 +104,7 @@ def test_subtotal2(basic_catalogue):
     pricer = BasketPricer(basket=basket, catalogue=basic_catalogue, offers=offers)
 
     subtotal = pricer.basket_subtotal()
-    assert subtotal >= 0 and abs(subtotal - 6.96) < 0.01
+    assert subtotal >= 0 and abs(subtotal - 6.96) < 0.001
 
 
 # Test of percentage discounting, without any other offers
@@ -114,7 +114,7 @@ def test_discount1(basic_catalogue, basic_offers):
     pricer = BasketPricer(basket=basket, catalogue=basic_catalogue, offers=basic_offers)
 
     discount = pricer.basket_discount()
-    assert discount >= 0 and abs(discount - 0.945) < 0.01
+    assert discount >= 0 and abs(discount - 0.945) < 0.001
 
 
 # Test of buy x get y free offer, without any other offers
@@ -125,7 +125,7 @@ def test_discount2(basic_catalogue, basic_offers):
     pricer = BasketPricer(basket=basket, catalogue=basic_catalogue, offers=basic_offers)
 
     discount = pricer.basket_discount()
-    assert discount >= 0 and abs(discount - 0.99) < 0.01
+    assert discount >= 0 and abs(discount - 0.99) < 0.001
 
 
 # Test of percentage discount and buy x get y free on different products
@@ -137,7 +137,7 @@ def test_discount3(basic_catalogue, basic_offers):
     pricer = BasketPricer(basket=basket, catalogue=basic_catalogue, offers=basic_offers)
 
     discount = pricer.basket_discount()
-    assert discount >= 0 and abs(discount - 1.935) < 0.01
+    assert discount >= 0 and abs(discount - 1.935) < 0.001
 
 
 # Test of buy x get y free applied multiple times on same product
@@ -148,7 +148,7 @@ def test_discount4(basic_catalogue, basic_offers):
     pricer = BasketPricer(basket=basket, catalogue=basic_catalogue, offers=basic_offers)
 
     discount = pricer.basket_discount()
-    assert discount >= 0 and abs(discount - 2.97) < 0.01
+    assert discount >= 0 and abs(discount - 2.97) < 0.001
 
 
 # Test of buy x get y free applied partially
@@ -159,7 +159,7 @@ def test_discount5(basic_catalogue, basic_offers):
     pricer = BasketPricer(basket=basket, catalogue=basic_catalogue, offers=basic_offers)
 
     discount = pricer.basket_discount()
-    assert discount >= 0 and abs(discount - 0.60) < 0.01
+    assert discount >= 0 and abs(discount - 0.60) < 0.001
 
 
 # Test of total (including discounts)
@@ -171,7 +171,7 @@ def test_total1(basic_catalogue, basic_offers):
     pricer = BasketPricer(basket=basket, catalogue=basic_catalogue, offers=basic_offers)
 
     total = pricer.basket_total()
-    assert total >= 0 and abs(total - 4.17) < 0.01
+    assert total >= 0 and abs(total - 4.17) < 0.001
 
 
 # Test of total (including discounts)
@@ -184,7 +184,7 @@ def test_total2(basic_catalogue, basic_offers):
     pricer = BasketPricer(basket=basket, catalogue=basic_catalogue, offers=basic_offers)
 
     total = pricer.basket_total()
-    assert total >= 0 and abs(total - 6.015) < 0.01
+    assert total >= 0 and abs(total - 6.015) < 0.001
 
 
 # Test of multiple discounts applied to same product
@@ -198,7 +198,7 @@ def test_multiple_discounts1(basic_catalogue, multiple_offers):
     )
 
     discount = pricer.basket_discount()
-    assert discount >= 0 and abs(discount - 8.9775) < 0.01
+    assert discount >= 0 and abs(discount - 8.9775) < 0.001
 
 
 # Test of multiple discounts applied to same product
@@ -212,4 +212,4 @@ def test_multiple_discounts2(basic_catalogue, multiple_offers):
     )
 
     discount = pricer.basket_discount()
-    assert discount >= 0 and abs(discount - 0.80) < 0.01
+    assert discount >= 0 and abs(discount - 0.80) < 0.001

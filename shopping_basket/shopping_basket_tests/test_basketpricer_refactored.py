@@ -88,9 +88,9 @@ def test_no_offers(basic_catalogue):
     discount = pricer.basket_discount()
     total = pricer.basket_total()
 
-    assert subtotal >= 0 and abs(subtotal - 2.19) < 0.01
-    assert discount >= 0 and abs(discount - 0.00) < 0.01
-    assert total >= 0 and abs(total - 2.19) < 0.01
+    assert subtotal >= 0 and abs(subtotal - 2.19) < 0.001
+    assert discount >= 0 and abs(discount - 0.00) < 0.001
+    assert total >= 0 and abs(total - 2.19) < 0.001
 
 
 # subtotal:
@@ -112,9 +112,9 @@ def test_no_overlapping_offers(basic_catalogue, basic_offers):
     discount = pricer.basket_discount()
     total = pricer.basket_total()
 
-    assert subtotal >= 0 and abs(subtotal - 15.51) < 0.01
-    assert discount >= 0 and abs(discount - 3.825) < 0.01
-    assert total >= 0 and abs(total - 11.685) < 0.01
+    assert subtotal >= 0 and abs(subtotal - 15.51) < 0.001
+    assert discount >= 0 and abs(discount - 3.825) < 0.001
+    assert total >= 0 and abs(total - 11.685) < 0.001
 
 
 # subtotal:
@@ -142,6 +142,6 @@ def test_with_overlapping_offers(basic_catalogue, multiple_offers):
     discount = pricer.basket_discount()
     total = pricer.basket_total()
 
-    assert subtotal >= 0 and abs(subtotal - 20.71) < 0.01
-    assert discount >= 0 and abs(discount - 7.27) < 0.01
-    assert total >= 0 and abs(total - 13.44) < 0.01
+    assert subtotal >= 0 and abs(subtotal - 20.71) < 0.001
+    assert discount >= 0 and abs(discount - 7.27) < 0.001
+    assert total >= 0 and abs(total - 13.44) < 0.001
