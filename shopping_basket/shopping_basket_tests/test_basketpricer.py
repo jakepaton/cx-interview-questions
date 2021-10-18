@@ -23,27 +23,13 @@ def basic_offers():
     offers = []
 
     # 25% discount on sardines
-    offers.append(Discount(offer_type="Discount", product="Sardines", discount_pc=0.25))
+    offers.append(Discount(product="Sardines", discount_pc=0.25))
 
     # buy 2 get 1 free on baked beans
-    offers.append(
-        BuyXGetYFree(
-            offer_type="BuyXGetYFree",
-            product="Baked Beans",
-            num_to_buy=2,
-            num_get_free=1,
-        )
-    )
+    offers.append(BuyXGetYFree(product="Baked Beans", num_to_buy=2, num_get_free=1))
 
     # buy 10 get 4 free on eggs
-    offers.append(
-        BuyXGetYFree(
-            offer_type="BuyXGetYFree",
-            product="Egg",
-            num_to_buy=10,
-            num_get_free=4,
-        )
-    )
+    offers.append(BuyXGetYFree(product="Egg", num_to_buy=10, num_get_free=4))
     return offers
 
 
@@ -53,30 +39,16 @@ def multiple_offers():
     offers = []
 
     # 25% discount on sardines
-    offers.append(Discount(offer_type="Discount", product="Sardines", discount_pc=0.25))
+    offers.append(Discount(product="Sardines", discount_pc=0.25))
 
     # also a buy 2 get 1 free on sardines
-    offers.append(
-        BuyXGetYFree(
-            offer_type="BuyXGetYFree",
-            product="Sardines",
-            num_to_buy=2,
-            num_get_free=1,
-        )
-    )
+    offers.append(BuyXGetYFree(product="Sardines", num_to_buy=2, num_get_free=1))
 
     # 10% discount on eggs
-    offers.append(Discount(offer_type="Discount", product="Egg", discount_pc=0.10))
+    offers.append(Discount(product="Egg", discount_pc=0.10))
 
     # also a buy 10 get 4 free on eggs
-    offers.append(
-        BuyXGetYFree(
-            offer_type="BuyXGetYFree",
-            product="Egg",
-            num_to_buy=10,
-            num_get_free=4,
-        )
-    )
+    offers.append(BuyXGetYFree(product="Egg", num_to_buy=10, num_get_free=4))
     return offers
 
 
