@@ -97,33 +97,3 @@ class BasketPricer:
             return total_num_free * price
         else:
             return 0
-
-
-if __name__ == "__main__":
-    from offer import Discount, BuyXGetYFree
-
-    catalogue = {
-        "Baked Beans": 0.99,
-        "Biscuits": 1.20,
-        "Sardines": 1.89,
-        "Shampoo (Small)": 2.00,
-        "Shampoo (Medium)": 2.50,
-        "Shampoo (Large)": 3.50,
-        "Egg": 0.20,
-    }
-
-    basket = {"Baked Beans": 0, "Biscuits": 0, "Sardines": 0, "Egg": 26}
-
-    offers = []
-    # 10% discount on eggs
-    offers.append(Discount(offer_type="Discount", product="Egg", discount_pc=0.10))
-    # also a buy 10 get 4 free on eggs
-    offers.append(
-        BuyXGetYFree(
-            offer_type="BuyXGetYFree", product="Egg", num_to_buy=10, num_get_free=4
-        )
-    )
-
-    pricer = BasketPricer(basket, catalogue, offers)
-
-    pricer.basket_discount()
