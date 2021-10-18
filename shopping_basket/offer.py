@@ -1,22 +1,32 @@
-from dataclasses import dataclass
-from abc import ABC
+from abc import ABC, abstractmethod
 
 
-@dataclass
 class Offer(ABC):
+    """Abstract base class for offers to inherit from"""
+
     offer_type: str
 
+    @abstractmethod
+    def __init__(self):
+        pass
 
-@dataclass
+
 class Discount(Offer):
+    """A class for specifying a percentage discount for a product"""
+
     offer_type = "Discount"
-    product: str
-    discount_pc: float
+
+    def __init__(self, product: str, discount_pc: float):
+        self.product = product
+        self.discount_pc = discount_pc
 
 
-@dataclass
 class BuyXGetYFree(Offer):
+    """A class for specifying a buy x get y free promotion for a product"""
+
     offer_type = "BuyXGetYFree"
-    product: str
-    num_to_buy: int
-    num_get_free: int
+
+    def __init__(self, product: str, num_to_buy: int, num_get_free: int):
+        self.product = product
+        self.num_to_buy = num_to_buy
+        self.num_get_free = num_get_free
