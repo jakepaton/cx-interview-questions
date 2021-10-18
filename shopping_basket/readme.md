@@ -7,12 +7,19 @@ BasketPricer requires:
 
 There are two subclasses of Offer avaiable: Discount (for percentage discounts) or BuyXGetYFree (e.g. buy 1 get 1 free)
 
-## Running the tests
-Clone this project and run pytest from the _/shopping_basket/_ directory:
+## Requirements
 
-_python -m pytest_
+Python version 3.9 or later
 
-To install dependencies via pipenv, run _pipenv install_ from the _/shopping_basket/_ directory to create a virtual environment with the dependencies installed. You can activate the virtual environment via _pipenv shell_, or run the tests directly via _pipenv run pytest_
+### Installing dependencies
+
+To install dependencies via pipenv, run _pipenv install_ from the _/shopping_basket/_ directory to create a virtual environment with the dependencies installed. You can activate the virtual environment via _pipenv shell_
+
+### Running the tests
+
+Clone this project and run pytest from the _/shopping_basket/_ directory via _python -m pytest_
+
+Or if using pipenv, you can run the tests directly via _pipenv run pytest_
 
 
 ## Assumptions
