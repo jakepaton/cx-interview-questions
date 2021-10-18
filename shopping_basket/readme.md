@@ -5,7 +5,7 @@ BasketPricer requires:
 * a catalogue (_dict[str, float]_ representing products and their prices)
 * a collection of offers (_list[Offer]_ where Offer is implemented in offer.py)
 
-There are two subclasses of Offer avaiable: Discount (for percentage discounts) or BuyXGetYFree (e.g. buy 1 get 1 free)
+There are two subclasses of Offer available: Discount (for percentage discounts) or BuyXGetYFree (e.g. buy 1 get 1 free)
 
 ## Requirements
 
@@ -13,7 +13,7 @@ Python version 3.9 or later
 
 ### Installing dependencies
 
-To install dependencies via pipenv, run _pipenv install_ from the _/shopping_basket/_ directory to create a virtual environment with the dependencies installed. You can activate the virtual environment via _pipenv shell_
+To install dependencies via pipenv (python version 3.10 required by Pipfile), run _pipenv install_ from the _/shopping_basket/_ directory to create a virtual environment with the dependencies installed. You can activate the virtual environment via _pipenv shell_
 
 ### Running the tests
 
